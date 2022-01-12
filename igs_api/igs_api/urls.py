@@ -1,21 +1,28 @@
-"""igs_api URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
+#from core_api.views import EmployeeListAPIView,  EmployeeCreateAPIView
+from core_api.views import EmployeeListAPIView, EmployeeCreateAPIView, EmployeeUpdateAPIView, EmployeeDestroyAPIView, EmployeeCreateAPIView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    # List
+    path("api/list-employee", EmployeeListAPIView.as_view(), name="api-employee-list"),
+    # Create
+    path("api/create-employee/", EmployeeCreateAPIView.as_view(), name="api-create-employee"),
+    # Update
+    path("api/update-employee/", EmployeeUpdateAPIView.as_view(), name="api-create-employee"),
+    # Delete
+    path("api/delete-employee/", EmployeeDestroyAPIView.as_view(), name="api-delete-employee"),
+    ]
+
+
+#from django.contrib import admin
+#from django.urls import path, include
+#from rest_framework.routers import DefaultRouter
+#from core_api import views
+#
+#router = DefaultRouter()
+#router.register(r"core_api", views.EmployeeListAPI, "Employee")
+
+

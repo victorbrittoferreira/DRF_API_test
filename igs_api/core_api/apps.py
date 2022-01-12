@@ -1,5 +1,4 @@
 from django.apps import AppConfig
 
-
-class CoreApiConfig(AppConfig):
+class CoreConfig(AppConfig):
     name = 'core_api'
