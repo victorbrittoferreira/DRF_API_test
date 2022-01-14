@@ -6,7 +6,6 @@ from django.shortcuts import render, redirect, reverse
 
 #LIST
 class EmployeeListAPIView(generics.ListAPIView):
-
     
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
